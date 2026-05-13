@@ -2,37 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Golos+Text:wght@400;500;600;700&display=swap");
+
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 40 30% 97%;
+    --foreground: 195 40% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 195 40% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 195 40% 12%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 182 52% 36%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 40 30% 93%;
+    --secondary-foreground: 195 40% 12%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 40 20% 92%;
+    --muted-foreground: 195 20% 40%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 182 52% 36%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 40 20% 87%;
+    --input: 40 20% 87%;
+    --ring: 182 52% 36%;
 
     --radius: 0.5rem;
+
+    --teal: 182 52% 36%;
+    --teal-light: 182 45% 92%;
+    --teal-dark: 182 52% 24%;
+    --cream: 40 30% 97%;
+    --cream-dark: 40 25% 91%;
+    --navy: 195 40% 12%;
 
     --sidebar-background: 0 0% 98%;
 
@@ -97,5 +106,46 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: "Golos Text", sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: "Cormorant", serif;
+  }
+}
+
+@layer utilities {
+  .font-cormorant {
+    font-family: "Cormorant", serif;
+  }
+  .font-golos {
+    font-family: "Golos Text", sans-serif;
+  }
+  .text-teal {
+    color: hsl(var(--teal));
+  }
+  .bg-teal {
+    background-color: hsl(var(--teal));
+  }
+  .bg-teal-light {
+    background-color: hsl(var(--teal-light));
+  }
+  .bg-teal-dark {
+    background-color: hsl(var(--teal-dark));
+  }
+  .bg-cream {
+    background-color: hsl(var(--cream));
+  }
+  .bg-cream-dark {
+    background-color: hsl(var(--cream-dark));
+  }
+  .text-navy {
+    color: hsl(var(--navy));
+  }
+  .border-teal {
+    border-color: hsl(var(--teal));
   }
 }
