@@ -2,7 +2,11 @@ import { useState } from "react";
 import React from "react";
 import Icon from "@/components/ui/icon";
 
-const HERO_BG = "https://cdn.poehali.dev/projects/0f86619d-cc65-4a14-9c83-b8daf88a1a79/files/ba134353-272e-4f33-a888-f524a198dfd0.jpg";
+const HERO_BG = "https://cdn.poehali.dev/projects/0f86619d-cc65-4a14-9c83-b8daf88a1a79/files/488ec1cc-694a-4fee-bd95-b2c86ac9f999.jpg";
+const IMG_AGENT = "https://cdn.poehali.dev/projects/0f86619d-cc65-4a14-9c83-b8daf88a1a79/files/00eb31a1-f8bb-4893-8984-6e84b6dcc014.jpg";
+const IMG_WEBINAR = "https://cdn.poehali.dev/projects/0f86619d-cc65-4a14-9c83-b8daf88a1a79/files/450e3194-3447-4cc0-bb12-918da6a2acaa.jpg";
+const IMG_TRAVEL = "https://cdn.poehali.dev/projects/0f86619d-cc65-4a14-9c83-b8daf88a1a79/files/d906f6ec-3ba1-4d8c-a26f-23ade2ccffb3.jpg";
+const IMG_AUTHOR = "https://cdn.poehali.dev/projects/0f86619d-cc65-4a14-9c83-b8daf88a1a79/files/2f466cf0-cc40-4b3f-9e33-30d2b177c189.jpg";
 
 const navLinks = [
   { label: "Программа", href: "#program" },
@@ -277,6 +281,17 @@ export default function Index() {
         </div>
       </section>
 
+      {/* PHOTO BANNER */}
+      <section className="relative h-80 overflow-hidden">
+        <img src={IMG_WEBINAR} alt="Участницы вебинара" className="w-full h-full object-cover object-center" />
+        <div className="absolute inset-0 flex items-center justify-center" style={{ background: "hsl(182 52% 24% / 0.65)" }}>
+          <div className="text-center px-6">
+            <p className="font-cormorant text-4xl md:text-5xl font-semibold text-white mb-3">Более 300 турагентов обучено с 2020 года</p>
+            <p className="font-golos text-white/80 text-lg">По всей России. От первого шага до первых продаж.</p>
+          </div>
+        </div>
+      </section>
+
       {/* PROGRAM */}
       <section id="program" className="py-24" style={{ background: "hsl(var(--cream))" }}>
         <div className="max-w-6xl mx-auto px-6">
@@ -289,16 +304,26 @@ export default function Index() {
               Как войти в профессию и на чём в ней зарабатывать — шаг за шагом.
             </p>
           </div>
-          <div className="space-y-4">
-            {programSteps.map((step, i) => (
-              <div key={i} className="bg-white rounded-2xl p-6 md:p-8 flex gap-6 items-start hover:shadow-md transition-shadow border border-stone-100">
-                <span className="font-cormorant text-5xl font-bold flex-shrink-0 leading-none mt-1" style={{ color: "hsl(182 45% 82%)" }}>{step.num}</span>
-                <div>
-                  <h3 className="font-cormorant text-2xl font-semibold text-navy mb-2">{step.title}</h3>
-                  <p className="text-stone-500 font-golos text-sm leading-relaxed">{step.desc}</p>
+          <div className="grid lg:grid-cols-5 gap-8 items-start">
+            <div className="lg:col-span-3 space-y-4">
+              {programSteps.map((step, i) => (
+                <div key={i} className="bg-white rounded-2xl p-6 md:p-8 flex gap-6 items-start hover:shadow-md transition-shadow border border-stone-100">
+                  <span className="font-cormorant text-5xl font-bold flex-shrink-0 leading-none mt-1" style={{ color: "hsl(182 45% 82%)" }}>{step.num}</span>
+                  <div>
+                    <h3 className="font-cormorant text-2xl font-semibold text-navy mb-2">{step.title}</h3>
+                    <p className="text-stone-500 font-golos text-sm leading-relaxed">{step.desc}</p>
+                  </div>
                 </div>
+              ))}
+            </div>
+            <div className="lg:col-span-2 sticky top-24 space-y-4">
+              <div className="rounded-2xl overflow-hidden aspect-[4/3]">
+                <img src={IMG_TRAVEL} alt="Путешествия и туризм" className="w-full h-full object-cover" />
               </div>
-            ))}
+              <div className="rounded-2xl overflow-hidden aspect-[4/3]">
+                <img src={IMG_AGENT} alt="Работа турагента" className="w-full h-full object-cover" />
+              </div>
+            </div>
           </div>
           <div className="text-center mt-12">
             <button
@@ -320,12 +345,7 @@ export default function Index() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative">
               <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-stone-100 relative">
-                <div className="w-full h-full flex items-center justify-center" style={{ background: "linear-gradient(135deg, hsl(182 45% 88%), hsl(182 52% 78%))" }}>
-                  <div className="text-center">
-                    <span className="text-8xl">👩‍💼</span>
-                    <p className="font-cormorant text-2xl text-teal font-semibold mt-4">Алена Фондеркина</p>
-                  </div>
-                </div>
+                <img src={IMG_AUTHOR} alt="Алена Фондеркина" className="w-full h-full object-cover" />
               </div>
               <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl p-4 shadow-xl border border-stone-100">
                 <div className="flex items-center gap-3">
@@ -436,6 +456,19 @@ export default function Index() {
               <Icon name="ChevronRight" size={18} style={{ color: "hsl(var(--teal))" }} />
             </button>
           </div>
+        </div>
+      </section>
+
+      {/* PHOTO STRIP before form */}
+      <section className="grid grid-cols-3 h-48 md:h-64 overflow-hidden">
+        <div className="overflow-hidden">
+          <img src={IMG_AGENT} alt="" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+        </div>
+        <div className="overflow-hidden">
+          <img src={HERO_BG} alt="" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+        </div>
+        <div className="overflow-hidden">
+          <img src={IMG_WEBINAR} alt="" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
         </div>
       </section>
 
